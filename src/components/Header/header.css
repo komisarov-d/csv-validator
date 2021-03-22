@@ -1,0 +1,13 @@
+.header {
+   background-color: chocolate;
+   height: 70px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-radius: 3px;
+   padding: 3px 10px;
+}
+.title {
+   font-size: 30px;
+   color: rgba(0, 0, 0, 0.8);
+}
