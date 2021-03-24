@@ -1,0 +1,13 @@
+.error {
+   width: 40%;
+   margin: 0 auto;
+   background-color: rgba(211, 36, 36, 0.7);
+   border-radius: 2px;
+}
+.error__message {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 40px 70px;
+   font-size: 26px;
+}

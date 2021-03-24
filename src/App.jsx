@@ -4,16 +4,18 @@ import { Table } from './components/Table/Table'
 import { Loader } from './components/Loader/Loader'
 import { Header } from './components/Header/Header'
 import { useParser } from './Hooks/useParser';
+import { ErrorMessage } from './components/ErrorMessage/ErrorMessage'
 
 const App = () => {
 
-  const { csvArr, loading, setData } = useParser()
+  const { csvArr, loading, setData, error, resetData } = useParser()
 
   return (
     <div className='container'>
-      <Header setData={setData} />
+      <Header setData={setData} resetData={resetData} />
       {loading && <Loader />}
-      {csvArr.length ? <Table csvArr={csvArr} /> : <p>No</p>}
+      {error && <ErrorMessage />}
+      { !error && <Table csvArr={csvArr} />}
     </div>
   )
 }

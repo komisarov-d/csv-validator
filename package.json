@@ -1,5 +1,5 @@
 {
-  "name": "your_app_name",
+  "name": "csv_decoder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

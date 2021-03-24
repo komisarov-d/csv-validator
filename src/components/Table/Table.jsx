@@ -1,27 +1,31 @@
 import React from 'react'
-// import { CvsContext } from '../../Context/CvsContext'
 import { TableItem } from './TableItem'
-
+import './table.css'
 export const Table = ({ csvArr }) => {
-   // const { csvArr } = useContext(CvsContext)
-   // header validation
-   // const headersItem = csvArr[0].map(item => <th>{item}</th>)
-   // body validation
-   const tableItem = csvArr.shift().map((item, idx) => {
 
+
+   const tableItem = csvArr.map((item, idx) => {
       return <TableItem
          key={idx}
-         idx={idx}
          item={item} />
    })
-   if (!csvArr.length) { return <p>no table</p> }
+   if (!csvArr.length) { return <p className='empty'>no table</p> }
 
    return (
       <table className='table'>
          <thead className='table__head'>
             <tr>
-               <th>#</th>
-               {/* {headersItem} */}
+               <th>ID</th>
+               <th>Full Name</th>
+               <th>Phone</th>
+               <th>Email</th>
+               <th>Age</th>
+               <th>Experience</th>
+               <th>Yearly Income</th>
+               <th>Has children</th>
+               <th>License states</th>
+               <th>Expiration date</th>
+               <th>License number</th>
                <th>Duplicate</th>
             </tr>
          </thead>

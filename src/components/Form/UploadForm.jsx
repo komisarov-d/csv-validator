@@ -1,18 +1,28 @@
 import React from 'react'
 import './uploadForm.css'
-export const UploadForm = ({ setData }) => {
+export const UploadForm = ({ setData, resetData }) => {
    const fileInput = React.createRef();
 
    const handleSubmit = (e) => {
-      e.preventDefault();
-      setData(fileInput.current.files[0])
+      e.preventDefault()
+      if (fileInput.current.files[0]) {
+         setData(fileInput.current.files[0])
+      }
+   }
+   const resetInput = e => {
+      e.preventDefault()
+      resetData()
    }
    return (
       <form className='form' onSubmit={handleSubmit}>
-         <input type="file" name="uploadfile" id="img" ref={fileInput} />
-         <label htmlFor="img">Click to upload</label>
+         <input type="file" name="uploadfile" id="img" ref={fileInput} accept='.csv' />
+         <label className='input' htmlFor="img">Click to upload &#9668;</label>
          <br />
-         <button type="submit">Parsing</button>
+         <div className='buttons'>
+            <button onClick={resetInput}>Reset</button>
+            <button type="submit">Parsing</button>
+         </div>
+
       </form>
    );
 }

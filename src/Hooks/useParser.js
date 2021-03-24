@@ -1,31 +1,35 @@
 import { useCallback, useState } from "react"
 import Papa from 'papaparse'
+import { validation } from "../Validators/csvValidator"
 
 export const useParser = () => {
    const [csvArr, setCvs] = useState([])
    const [loading, setLoading] = useState(false)
-   const pasreCvs = (file) => {
-      const doc = Papa.parse(file, { delimiter: ",", header: true })
-      return doc
-   }
+   const [error, setError] = useState(false)
+
    const setData = useCallback((file) => {
       setLoading(true)
-      // const filef = file.toString()
-      const cvs = [pasreCvs(file)]
-      debugger
-      console.log(cvs);
-      // setCvs(cvs)
+      Papa.parse(file, {
+         dowload: true,
+         header: true,
+         complete: (result) => {
+            const validArr = validation(result.data)
+            validArr.forEach(el => {
+               if (el === false) {
+                  setError(true)
+               }
+            })
+            console.log(validArr[0]);
+            setCvs(validArr)
+         }
+      })
       setLoading(false)
    }, [])
 
-   // useEffect(() => {
-   //    const data = JSON.parse(localStorage.getItem(storageName))
+   const resetData = useCallback(() => {
+      setError(false)
+      setCvs([])
+   }, [])
 
-   //    setReady(true)
-   //    return () => {
-   //       setCvs(null)
-   //    }
-   // }, [login])
-
-   return { csvArr, loading, setData }
+   return { csvArr, loading, setData, error, resetData }
 }

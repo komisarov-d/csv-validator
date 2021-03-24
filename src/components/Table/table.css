@@ -1,0 +1,19 @@
+.table {
+   margin-top: 5px;
+   border: 1px solid #000;
+   width: 100%;
+}
+.table__head {
+   background-color: cadetblue;
+   font-size: 18px;
+}
+td,
+th {
+   border: 1px solid #000;
+   text-align: center;
+   justify-content: center;
+}
+.empty {
+   text-align: center;
+   font-size: 24px;
+}
