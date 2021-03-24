@@ -1,6 +1,6 @@
 .header {
    background-color: chocolate;
-   height: 80px;
+   min-height: 80px;
    display: flex;
    justify-content: space-between;
    align-items: center;

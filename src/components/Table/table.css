@@ -6,10 +6,11 @@
 .table__head {
    background-color: cadetblue;
    font-size: 18px;
+   font-weight: bold;
 }
 td,
 th {
-   border: 1px solid #000;
+   border: 1px solid rgba(0, 0, 0, 0.6);
    text-align: center;
    justify-content: center;
 }

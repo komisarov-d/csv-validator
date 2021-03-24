@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Header setData={setData} resetData={resetData} />
+      <Header setData={setData} resetData={resetData} csvArr={csvArr} />
       {loading && <Loader />}
       {error && <ErrorMessage />}
       { !error && <Table csvArr={csvArr} />}

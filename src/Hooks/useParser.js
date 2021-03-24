@@ -19,7 +19,7 @@ export const useParser = () => {
                   setError(true)
                }
             })
-            console.log(validArr[0]);
+            // console.log(validArr[0]);
             setCvs(validArr)
          }
       })

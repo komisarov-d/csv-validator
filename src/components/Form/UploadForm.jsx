@@ -1,6 +1,6 @@
 import React from 'react'
 import './uploadForm.css'
-export const UploadForm = ({ setData, resetData }) => {
+export const UploadForm = ({ setData, resetData, csvArr }) => {
    const fileInput = React.createRef();
 
    const handleSubmit = (e) => {
@@ -16,7 +16,8 @@ export const UploadForm = ({ setData, resetData }) => {
    return (
       <form className='form' onSubmit={handleSubmit}>
          <input type="file" name="uploadfile" id="img" ref={fileInput} accept='.csv' />
-         <label className='input' htmlFor="img">Click to upload &#9668;</label>
+
+         <label className='input' htmlFor="img"> {csvArr.length ? <p>Parsed &#9745;</p> : <p>Click to upload &#9668;</p>} </label>
          <br />
          <div className='buttons'>
             <button onClick={resetInput}>Reset</button>

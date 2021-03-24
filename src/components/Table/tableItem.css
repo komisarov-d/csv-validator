@@ -1,0 +1,7 @@
+.invalid {
+   background-color: rgba(220, 20, 60, 0.9);
+}
+.item {
+   padding: 2px;
+   font-size: 16px;
+}

@@ -26,11 +26,13 @@ export const Table = ({ csvArr }) => {
                <th>License states</th>
                <th>Expiration date</th>
                <th>License number</th>
-               <th>Duplicate</th>
+               <th>Duplicate with</th>
             </tr>
          </thead>
          <tbody className='table__body'>
+
             {tableItem}
+
          </tbody>
       </table>
    )
