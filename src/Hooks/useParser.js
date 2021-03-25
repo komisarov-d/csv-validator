@@ -4,32 +4,27 @@ import { validation } from "../Validators/csvValidator"
 
 export const useParser = () => {
    const [csvArr, setCvs] = useState([])
-   const [loading, setLoading] = useState(false)
    const [error, setError] = useState(false)
 
    const setData = useCallback((file) => {
-      setLoading(true)
+      setCvs([])
       Papa.parse(file, {
          dowload: true,
          header: true,
          complete: (result) => {
+
             const validArr = validation(result.data)
+
+            setError(false)
             validArr.forEach(el => {
                if (el === false) {
                   setError(true)
                }
             })
-            // console.log(validArr[0]);
             setCvs(validArr)
          }
       })
-      setLoading(false)
    }, [])
 
-   const resetData = useCallback(() => {
-      setError(false)
-      setCvs([])
-   }, [])
-
-   return { csvArr, loading, setData, error, resetData }
+   return { csvArr, setData, error }
 }

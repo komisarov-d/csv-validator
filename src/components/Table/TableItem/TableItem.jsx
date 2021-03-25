@@ -1,10 +1,9 @@
 import React from 'react'
 import './tableItem.css'
 export const TableItem = ({ item }) => {
-   // debugger
-   const checkError = (value) => {
 
-      if (item.errors.length && item.errors.length !== undefined) {
+   const checkError = (value) => {
+      if (item.errors.length) {
          const error = item.errors.includes(value)
          if (error) { return 'invalid' }
       }
@@ -20,12 +19,10 @@ export const TableItem = ({ item }) => {
          <td className={`item ${checkError('experience')}`}>{item.experience}</td>
          <td className={`item ${checkError('yearlyincome')}`}>{item.yearlyincome.toFixed(2)}</td>
          <td className={`item ${checkError('haschildren')}`}>{item.haschildren}</td>
-         <td className={`item ${checkError('licensestates')}`}>{item.licensestates}</td>
+         <td className={`item ${checkError('licensestates')}`}>{item.licensestates.join(' | ')}</td>
          <td className={`item ${checkError('expirationdate')}`}>{item.expirationdate}</td>
          <td className={`item ${checkError('licensenumber')}`}>{item.licensenumber}</td>
          <td className={`item ${checkError('dublicate')}`}>{item.dublicates[0]}</td>
-
-
       </tr>
    )
 }

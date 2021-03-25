@@ -1,15 +1,15 @@
 import React from 'react'
-import { TableItem } from './TableItem'
+import { TableItem } from './TableItem/TableItem'
 import './table.css'
 export const Table = ({ csvArr }) => {
-
 
    const tableItem = csvArr.map((item, idx) => {
       return <TableItem
          key={idx}
          item={item} />
    })
-   if (!csvArr.length) { return <p className='empty'>no table</p> }
+
+   if (!csvArr.length) { return <p className='empty'></p> }
 
    return (
       <table className='table'>
