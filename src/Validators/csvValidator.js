@@ -124,12 +124,15 @@ const errorCheck = (obj) => {
 
    if (obj.phone.length !== 12 || obj.phone[0] !== '+' || obj.phone[1] !== '1') { errors.push('phone') }
 
-   if (obj.yearlyincome < 0 && obj.yearlyincome > 1000000) { errors.push('yearlyincome') }
+
+   if (obj.yearlyincome < 0 || obj.yearlyincome > 1000000) {
+      errors.push('yearlyincome')
+   }
+
 
    obj.licensestates.forEach(item => {
 
       const statesVal = Object.keys(states)
-
       const match = statesVal.map(arrItem => {
          if (arrItem === item.toUpperCase()) { return true }
          return false
